@@ -1,0 +1,86 @@
+<MainProductItem@MDBoxLayout>:
+    orientation: 'vertical'
+    adaptive_height: True
+    RelativeLayout:
+        AsyncImage:
+            source: 'http://devuz.ru/media/product-item.jpg'
+        MDLabel:
+            pos_hint: {'x': -.05, 'y': 0.4}
+            size: 200, 200
+            pos: 200, 200
+            pos: 1, 1
+            markup: True
+            text: '[color=000000]В закладки[/color]'
+            halign: 'right'
+        MDLabel:
+            pos_hint: {'x': -.05, 'y': -0.4}
+            size: 200, 200
+            pos: 200, 200
+            pos: 1, 1
+            markup: True
+            text: '[color=000000]1 кг[/color]'
+            halign: 'right'
+    MDLabel:
+        size_hint: 1, .3
+        markup: True
+        text: '[color=111111]12 000 сум[/color]'
+        font_size: '16sp'
+        halign: 'center'
+    MDLabel:
+        size_hint: 1, .3
+        markup: True
+        text: '[color=111111]Гречка упакованная отборная офигенная[/color]'
+        max_lines: 2
+        font_size: '12sp'
+        text_size: 180, None
+        halign: 'center'
+
+
+<SliderProducts@MDBoxLayout>:
+    orientation: 'vertical'
+    MDBoxLayout:
+        size_hint: 1, .1
+        MDLabel:
+            text: 'Популярные товарв'
+        MDLabel:
+            text: 'Показать все'
+    RecycleView:
+        do_scroll_x: True
+        do_scroll_y: False
+        smooth_scroll_end: 20
+        MDGridLayout:
+            rows: 1
+            col_force_default: True
+            col_default_width: 200
+            adaptive_width: True
+            MainProductItem
+            MainProductItem
+            MainProductItem
+            MainProductItem
+            MainProductItem
+            MainProductItem
+            MainProductItem
+
+
+<MainScreen>:
+    RecycleView:
+        do_scroll_x: False
+        do_scroll_y: True
+        smooth_scroll_end: 20
+        MDGridLayout:
+            cols: 1
+            row_force_default: True
+            row_default_height: 270
+            adaptive_height: True
+            BoxLayout:
+                orientation: 'vertical'
+                AsyncImage:
+                    source: 'assets/img/slider.jpg'
+                    size: self.texture_size
+                    allow_stretch: True
+                    keep_ratio: False
+            SliderProducts
+            SliderProducts
+            SliderProducts
+            SliderProducts
+            SliderProducts
